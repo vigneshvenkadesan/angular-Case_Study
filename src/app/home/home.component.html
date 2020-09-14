@@ -1,0 +1,24 @@
+
+<h1>Home Page</h1>
+<p *ngIf="authService.isLoggedIn()">
+  Welcome {{ authService.currentUser.name }}
+</p>
+<ul>
+  <li><a routerLink="/admin">Click to access Admin</a></li>
+</ul>
+  <h2>List</h2>
+  <table class="table"> 
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Type</th>
+    </tr>
+    <tbody *ngFor="let user of users">
+      <tr>
+        <td>{{ user.id }} </td>
+        <td>{{user.name}}</td>
+        <td>{{user.type}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-primary" *ngIf="authService.isLoggedIn()" (click)="authService.logout()">Logout<button>

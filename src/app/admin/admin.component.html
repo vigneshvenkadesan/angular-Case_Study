@@ -1,0 +1,37 @@
+
+<h1>Admin</h1>
+<h2>List</h2>
+<table class="table"> 
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Type</th>
+  </tr>
+  <tbody *ngFor="let user of users">
+    <tr>
+      <td>{{ user.id }} </td>
+      <td>{{user.name}}</td>
+      <td>{{user.type}}</td>
+    </tr>
+  </tbody>
+</table>
+<form #f="ngForm"(ngSubmit)="addNew(f.value)" >
+  
+<label>Add New Item</label>
+ <input id='id'
+  ngModel name='id'
+  #id="ngModel">
+
+  <input id='name'
+  ngModel name='name'
+  #name="ngModel">
+  
+  <input id='type'
+  ngModel name='type'
+  #type="ngModel">
+  <button type="submit">Add</button>
+
+
+  </form>
+
+  {{f.value|json}}
